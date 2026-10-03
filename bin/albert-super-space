@@ -1,0 +1,24 @@
+#!/bin/sh
+# Super+Space: toggle Albert. Marks the Super chord flag so
+# super-menu-arm/open skip the Start menu (same pattern as Super+P).
+set -e
+
+export DISPLAY=${DISPLAY:-:0}
+
+FK_BIN=${FRAMEWORK_KEYBOARD_BIN:-${FK_BIN:-/usr/local/bin}}
+if [ -x "$FK_BIN/super-menu-handler" ]; then
+	"$FK_BIN/super-menu-handler" chord
+fi
+
+if ! command -v albert >/dev/null 2>&1; then
+	echo "albert-super-space: albert not found" >&2
+	exit 1
+fi
+
+if pgrep -x albert >/dev/null 2>&1; then
+	exec albert toggle
+fi
+
+# Cold start (desktop file uses xcb explicitly on FreeBSD).
+albert --platform xcb &
+exit 0

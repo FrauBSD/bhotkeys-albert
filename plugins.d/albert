@@ -1,0 +1,8 @@
+id albert
+group x11/bhotkeys-albert
+label Albert launcher
+chord Super+space
+command albert-super-space
+repeat 0
+greeter 0
+desc Open or close the Albert launcher.
