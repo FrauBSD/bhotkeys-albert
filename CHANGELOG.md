@@ -1,3 +1,5 @@
+[//]: # ($FrauBSD: bhotkeys-albert/CHANGELOG.md 2026-10-03 19:17:44 -0700 Devin Teske $)
+
 # Changelog
 
 Newest first. Each section is a git tag; the bullets are what landed
@@ -8,4 +10,4 @@ repository for 1.0).
 
 - `albert` plugin: Super+Space runs albert-super-space
 - albert-super-space: toggle a running Albert or start one on xcb,
-  after telling super-menu-handler a Super chord fired
+  after telling bvwm-super-menu-handler a Super chord fired

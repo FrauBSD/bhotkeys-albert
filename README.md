@@ -1,3 +1,5 @@
+[//]: # ($FrauBSD: bhotkeys-albert/README.md 2026-10-03 19:17:44 -0700 Devin Teske $)
+
 # bhotkeys-albert
 
 `Super+Space` opens or closes the Albert launcher.
@@ -5,8 +7,8 @@
 One [bhotkeys](https://github.com/FrauBSD/bhotkeys) plugin and the
 small script it runs. `albert-super-space` toggles a running Albert,
 or starts one on the xcb platform when none is up. Before that it
-tells `super-menu-handler` (when
-[framework-keyboard](https://github.com/FrauBSD/framework-keyboard)
+tells `bvwm-super-menu-handler` (when
+[bvwm](https://github.com/FrauBSD/bvwm)
 is installed) that a Super chord fired, so a tap-Super start menu
 does not also open.
 
@@ -16,8 +18,7 @@ Home: [FrauBSD/bhotkeys-albert](https://github.com/FrauBSD/bhotkeys-albert)
 
 - `bhotkeys`
 - `albert`
-- `framework-keyboard` is optional; without it the Super-tap hint is
-  skipped
+- `bvwm` is optional; without it the Super-tap hint is skipped
 
 ## Build / install
 
