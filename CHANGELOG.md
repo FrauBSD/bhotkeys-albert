@@ -9,5 +9,4 @@ repository for 1.0).
 ## 1.0 (2026-10-03)
 
 - `albert` plugin: Super+Space runs albert-super-space
-- albert-super-space: toggle a running Albert or start one on xcb,
-  after telling bvwm-super-menu-handler a Super chord fired
+- albert-super-space: toggle a running Albert or start one on xcb
