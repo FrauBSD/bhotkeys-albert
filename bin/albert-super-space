@@ -1,24 +1,53 @@
 #!/bin/sh
-# Super+Space: toggle Albert. Marks the Super chord flag so
+############################################################ LICENSE
+#
+# Copyright (c) 2026 Devin Teske <dteske@FreeBSD.org>
+#
+# SPDX-License-Identifier: BSD-2-Clause
+#
+############################################################ IDENT(1)
+#
+# $Title: Toggle Albert on Super+Space $
+# $Copyright: 2026 Devin Teske. All rights reserved. $
+# $FrauBSD: bhotkeys-albert/bin/albert-super-space 2026-10-03 19:16:21 -0700 Devin Teske $
+#
+############################################################ INFORMATION
+#
+# Super+Space toggles Albert. Marks the Super chord flag so
 # super-menu-arm/open skip the Start menu (same pattern as Super+P).
+# bvwm-super-menu-handler ships with bvwm.
+#
+############################################################ GLOBALS
+
+pgm="${0##*/}" # Program basename
+
+DISPLAY="${DISPLAY:-:0}"
+export DISPLAY
+
+############################################################ FUNCTIONS
+
+quietly() { "$@" > /dev/null 2>&1; }
+have() { quietly command -v "$@"; }
+
+############################################################ MAIN
+
 set -e
 
-export DISPLAY=${DISPLAY:-:0}
+have bvwm-super-menu-handler &&
+	bvwm-super-menu-handler chord
 
-FK_BIN=${FRAMEWORK_KEYBOARD_BIN:-${FK_BIN:-/usr/local/bin}}
-if [ -x "$FK_BIN/super-menu-handler" ]; then
-	"$FK_BIN/super-menu-handler" chord
-fi
-
-if ! command -v albert >/dev/null 2>&1; then
-	echo "albert-super-space: albert not found" >&2
+have albert || {
+	echo "$pgm: albert not found" >&2
 	exit 1
-fi
+}
 
-if pgrep -x albert >/dev/null 2>&1; then
+quietly pgrep -x albert &&
 	exec albert toggle
-fi
 
-# Cold start (desktop file uses xcb explicitly on FreeBSD).
+# Cold start (desktop file uses xcb explicitly on FreeBSD)
 albert --platform xcb &
 exit 0
+
+################################################################################
+# END
+################################################################################
