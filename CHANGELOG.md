@@ -1,10 +1,14 @@
-[//]: # ($FrauBSD: bhotkeys-albert/CHANGELOG.md 2026-10-03 19:41:21 -0700 Devin Teske $)
+[//]: # ($FrauBSD: bhotkeys-albert/CHANGELOG.md 2026-10-04 22:23:48 -0700 Devin Teske $)
 
 # Changelog
 
 Newest first. Each section is a git tag; the bullets are what landed
 in that tag (from the previous tag, or from the start of the
 repository for 1.0).
+
+## 1.1 (2026-10-04)
+
+- man page for `albert-super-space`
 
 ## 1.0 (2026-10-03)
 

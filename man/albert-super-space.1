@@ -1,0 +1,45 @@
+.\" Copyright (c) 2026 Devin Teske <dteske@FreeBSD.org>
+.\"
+.\" SPDX-License-Identifier: BSD-2-Clause
+.\"
+.Dd October 4, 2026
+.Dt ALBERT-SUPER-SPACE 1
+.Os
+.Sh NAME
+.Nm albert-super-space
+.Nd toggle Albert
+.Sh SYNOPSIS
+.Nm
+.Sh DESCRIPTION
+.Nm
+toggles
+.Xr albert 1
+on
+.Sy Super+Space .
+When
+.Nm albert
+is already running, it is run with
+.Cm toggle .
+Otherwise it is started in the background with
+.Fl Fl platform Cm xcb .
+.Sh ENVIRONMENT
+.Bl -tag -width "DISPLAY"
+.It Ev DISPLAY
+X server.
+The default is
+.Pa :0 .
+.El
+.Sh EXIT STATUS
+.Nm
+exits 1 when
+.Nm albert
+is not in
+.Ev PATH .
+A toggle takes the exit status of
+.Nm albert .
+A cold start exits 0 after the process is launched.
+.Sh SEE ALSO
+.Xr albert 1 ,
+.Xr bhotkeys 1
+.Sh AUTHORS
+.An Devin Teske Aq Mt dteske@FreeBSD.org
